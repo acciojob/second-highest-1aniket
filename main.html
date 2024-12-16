@@ -10,6 +10,21 @@
 	<script>
 		function secondHighest(arr) {
 			//Write your code here
+
+			let a=0;
+			let cnt=0;
+
+
+			arr.sort();
+
+			if(arr.length<2 || arr[0]==arr[arr.length-1])
+			{
+				return "-Infinity"
+			} 
+
+			return arr[arr.length-2];
+			
+			
 			
 		}
 
@@ -20,6 +35,7 @@
 				arr[i] = prompt("Enter element " + (i+1));
 			}
 			alert(secondHighest(arr));
+			
 		}
 		Main();
 	</script>
