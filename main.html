@@ -12,17 +12,45 @@
 			//Write your code here
 
 			let a=0;
-			let cnt=0;
+			let first=Number.MIN_SAFE_INTEGER;
+			let second=Number.MIN_SAFE_INTEGER;
+			let minus=true;
+			
+			if(arr.length<2)return "-Infinity";
 
-
-			arr.sort();
-
-			if(arr.length<2 || arr[0]==arr[arr.length-1])
+			
+			for(let i=0;i<arr.length;i++)
 			{
-				return "-Infinity"
-			} 
+			  if(first<arr[i])
+			  {
+				  
+			    second=first;
+			    first=arr[i];
+			  }
 
-			return arr[arr.length-2];
+				if(arr[i]>0)
+					minus=false;
+			}
+
+			if(minus)
+			{
+				arr.sort();
+				return arr[1];
+			}
+
+			
+
+
+			
+			return second;
+			
+			
+			
+
+
+			
+
+			
 			
 			
 			
@@ -32,9 +60,12 @@
 			var n = prompt("Enter the number of elements");
 			var arr = [];
 			for (var i = 0; i < n; i++) {
-				arr[i] = prompt("Enter element " + (i+1));
+				arr[i] = parseInt(prompt("Enter element " + (i+1)));
+				
 			}
 			alert(secondHighest(arr));
+
+			
 			
 		}
 		Main();
